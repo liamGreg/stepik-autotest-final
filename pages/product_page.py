@@ -8,11 +8,19 @@ class ProductPage(BasePage):
         self.click_add_to_basket_button()
         self.solve_quiz_and_get_code()
 
+    def check_item_is_added(self):
         title = self.get_item_title()
         self.should_be_success_alert_of_added_item(title)
-
         price = self.get_item_price()
         self.should_be_item_price_and_basket_total_equal(price)
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(
+            *ProductPageLocators.ITEM_ADDED_TO_BASKET_SUCCESS_ALERT), "Success message is presented, but should not be."
+
+    def should_be_success_message_disappeared(self):
+        assert self.is_disappeared(
+            *ProductPageLocators.ITEM_ADDED_TO_BASKET_SUCCESS_ALERT), "Success message is presented, but should be disappeared."
 
     def should_be_add_to_basket_button(self):
         assert self.is_element_present(
