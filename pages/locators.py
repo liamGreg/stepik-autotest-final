@@ -23,7 +23,7 @@ class LoginPageLocators(object):
 
 
 class ProductPageLocators(object):
-    ADD_TO_CART_BUTTON = (By.CSS_SELECTOR, ".btn-add-to-cart")
+    ADD_TO_CART_BUTTON = (By.CSS_SELECTOR, ".btn-add-to-basket")
     ITEM_ADDED_TO_CART_SUCCESS_ALERT = (By.CSS_SELECTOR, ".alert-success:first-of-type strong")
     ITEM_TITLE = (By.CSS_SELECTOR, ".product_main h1")
     CART_TOTAL_INFO_ALERT = (By.CSS_SELECTOR, ".alert-info strong")
