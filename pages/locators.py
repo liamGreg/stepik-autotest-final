@@ -2,8 +2,9 @@ from selenium.webdriver.common.by import By
 
 
 class BasePageLocators(object):
-    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
-    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    LOGIN_LINK = (By.ID, "login_link")
+    LOGIN_LINK_INVALID = (By.ID, "login_link_inc")
+    CART_LINK = (By.CSS_SELECTOR, "a.btn-default:not(.navbar-btn)[href$='/basket/']")
 
 
 class MainPageLocators(object):
@@ -17,8 +18,13 @@ class LoginPageLocators(object):
 
 
 class ProductPageLocators(object):
-    ADD_TO_BASKET_BUTTON = (By.CSS_SELECTOR, ".btn-add-to-basket")
-    ITEM_ADDED_TO_BASKET_SUCCESS_ALERT = (By.CSS_SELECTOR, ".alert-success:first-of-type strong")
+    ADD_TO_CART_BUTTON = (By.CSS_SELECTOR, ".btn-add-to-cart")
+    ITEM_ADDED_TO_CART_SUCCESS_ALERT = (By.CSS_SELECTOR, ".alert-success:first-of-type strong")
     ITEM_TITLE = (By.CSS_SELECTOR, ".product_main h1")
-    BASKET_TOTAL_INFO_ALERT = (By.CSS_SELECTOR, ".alert-info strong")
+    CART_TOTAL_INFO_ALERT = (By.CSS_SELECTOR, ".alert-info strong")
     ITEM_PRICE = (By.CSS_SELECTOR, ".product_main .price_color")
+
+
+class CartPageLocators(object):
+    CART_ITEMS = (By.CSS_SELECTOR, ".basket-items")
+    CART_IS_EMPTY = (By.CSS_SELECTOR, "#content_inner > p")
